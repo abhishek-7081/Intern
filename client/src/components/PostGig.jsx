@@ -64,7 +64,7 @@ export default function PostGig() {
         {/* Button */}
         <button
           onClick={submit}
-          className="w-full bg-gradient-to-r from-indigo-600 to-blue-600 
+          className="w-full bg-linear-to-r from-indigo-600 to-blue-600 
                      text-white py-2.5 rounded-lg font-semibold
                      hover:scale-[1.02] hover:shadow-lg transition-all"
         >

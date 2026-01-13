@@ -12,19 +12,22 @@ export default function Home() {
   }, [search]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-sky-50 to-indigo-100 p-6">
-      {/* Header */}
-      <div className="max-w-6xl mx-auto">
-        <h1 className="text-3xl font-bold text-indigo-700 mb-6 text-center">
-          Explore Gigs 💼
+    <div className="min-h-screen bg-gradient-to-br from-[#020617] via-[#020617] to-black text-white p-8">
+      <div className="max-w-7xl mx-auto">
+
+        {/* Header */}
+        <h1 className="text-4xl font-extrabold tracking-widest text-cyan-300 mb-10 text-center">
+          EXPLORE GIGS ✨
         </h1>
 
         {/* Search Bar */}
-        <div className="mb-8">
+        <div className="mb-10">
           <input
             placeholder="🔍 Search gigs by title, skills, or budget..."
-            className="w-full rounded-xl border border-gray-300 px-4 py-3 
-                       shadow-sm focus:ring-2 focus:ring-indigo-400 
+            className="w-full rounded-2xl bg-white/5 backdrop-blur-xl
+                       border border-white/10 px-5 py-3
+                       text-cyan-200 placeholder-gray-400
+                       focus:ring-2 focus:ring-cyan-400 
                        focus:outline-none transition-all"
             onChange={e => setSearch(e.target.value)}
           />
@@ -32,22 +35,25 @@ export default function Home() {
 
         {/* Gigs Grid */}
         {gigs.length === 0 ? (
-          <div className="text-center text-gray-400 mt-16">
-            <p className="text-lg">No gigs found 😕</p>
-            <p className="text-sm">Try searching with different keywords</p>
+          <div className="text-center text-gray-400 mt-20">
+            <p className="text-lg tracking-widest">NO GIGS FOUND 🚫</p>
+            <p className="text-sm mt-1">Try different keywords</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {gigs.map(gig => (
               <div
                 key={gig._id}
-                className="transform transition-all hover:scale-[1.02] hover:shadow-xl"
+                className="transform transition-all duration-300 
+                           hover:scale-[1.03] hover:shadow-cyan-500/30 
+                           hover:shadow-2xl"
               >
                 <GigCard gig={gig} />
               </div>
             ))}
           </div>
         )}
+
       </div>
     </div>
   );

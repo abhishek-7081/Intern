@@ -26,7 +26,7 @@ export default function GigCard({ gig }) {
 
         <Link
           to={`/gig/${gig._id}`}
-          className="bg-gradient-to-r from-indigo-600 to-blue-600 
+          className="bg-linear-to-r from-indigo-600 to-blue-600 
                      text-white px-4 py-1.5 rounded-lg text-sm font-medium
                      shadow hover:scale-105 transition-transform"
         >

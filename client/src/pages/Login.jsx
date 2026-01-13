@@ -10,7 +10,7 @@ export default function Login() {
   const submit = async () => {
     try {
       await api.post("/auth/login", data);
-      alert("🎉 Login successful");
+      alert("🚀 Login successful");
       navigate("/");
     } catch (err) {
       alert("❌ Invalid credentials");
@@ -18,36 +18,50 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-sky-100 flex items-center justify-center p-6">
-      <div className="bg-white w-full max-w-md rounded-2xl shadow-xl p-8">
+    <div className="min-h-screen bg-gradient-to-br from-[#020617] via-[#020617] to-black 
+                    flex items-center justify-center p-8 text-white">
+      <div
+        className="w-full max-w-md bg-white/5 backdrop-blur-xl 
+                   border border-white/10 rounded-2xl shadow-2xl p-8"
+      >
         {/* Header */}
-        <h2 className="text-3xl font-bold text-center text-indigo-700 mb-2">
-          Welcome
+        <h2 className="text-3xl font-extrabold tracking-widest text-cyan-300 mb-2 text-center">
+          WELCOME BACK 🌌
         </h2>
-        <p className="text-center text-gray-500 mb-6">
-          Login to continue to GigFlow
+        <p className="text-center text-gray-400 mb-8 text-sm tracking-wide">
+          Log in to access your GigFlow mission control
         </p>
 
         {/* Email */}
-        <div className="mb-4">
-          <label className="text-sm font-medium text-gray-600">Email</label>
+        <div className="mb-5">
+          <label className="text-xs uppercase tracking-widest text-cyan-200">
+            Email
+          </label>
           <input
             type="email"
-            placeholder="Enter your email"
-            className="mt-1 w-full rounded-lg border border-gray-300 p-2.5 
-                       focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+            placeholder="Enter your space ID (email)"
+            className="mt-2 w-full rounded-xl bg-black/40 
+                       border border-white/10 px-4 py-2.5
+                       text-cyan-200 placeholder-gray-500
+                       focus:ring-2 focus:ring-cyan-400 
+                       focus:outline-none transition-all"
             onChange={(e) => setData({ ...data, email: e.target.value })}
           />
         </div>
 
         {/* Password */}
-        <div className="mb-6">
-          <label className="text-sm font-medium text-gray-600">Password</label>
+        <div className="mb-7">
+          <label className="text-xs uppercase tracking-widest text-cyan-200">
+            Password
+          </label>
           <input
             type="password"
-            placeholder="Enter your password"
-            className="mt-1 w-full rounded-lg border border-gray-300 p-2.5 
-                       focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+            placeholder="Enter your access key"
+            className="mt-2 w-full rounded-xl bg-black/40 
+                       border border-white/10 px-4 py-2.5
+                       text-cyan-200 placeholder-gray-500
+                       focus:ring-2 focus:ring-cyan-400 
+                       focus:outline-none transition-all"
             onChange={(e) => setData({ ...data, password: e.target.value })}
           />
         </div>
@@ -55,18 +69,22 @@ export default function Login() {
         {/* Button */}
         <button
           onClick={submit}
-          className="w-full bg-gradient-to-r from-indigo-600 to-blue-600 
-                     text-white py-2.5 rounded-lg font-semibold
-                     hover:scale-[1.02] hover:shadow-lg transition-all"
+          className="w-full py-3 rounded-full font-semibold tracking-widest
+                     bg-gradient-to-r from-cyan-400 to-blue-500 text-black
+                     hover:scale-105 hover:shadow-cyan-400/40
+                     transition-all"
         >
-          Login
+          LAUNCH SESSION
         </button>
 
         {/* Footer */}
-        <p className="text-center text-sm text-gray-500 mt-4">
-          Don’t have an account?{" "}
-          <span className="text-indigo-600 font-medium cursor-pointer hover:underline">
-            Sign Up
+        <p className="text-center text-sm text-gray-400 mt-6">
+          New astronaut?{" "}
+          <span
+            className="text-cyan-300 font-medium cursor-pointer hover:underline"
+            onClick={() => navigate("/register")}
+          >
+            Create Account
           </span>
         </p>
       </div>
