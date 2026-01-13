@@ -54,7 +54,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-// import PostGig from "./pages/PostGig";
+import PostGig from "./pages/PostGig";
 import Dashboard from "./pages/Dashboard";
 import Navbar from "./components/Navbar";
 
@@ -66,7 +66,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        {/* <Route path="/post" element={<PostGig />} /> */}
+        <Route path="/post" element={<PostGig />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
