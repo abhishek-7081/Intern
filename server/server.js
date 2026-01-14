@@ -12,33 +12,12 @@ dotenv.config();
 connectDB();
 
 const app = express();
-
-
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://taskinternservice.vercel.app"
-];
+app.set("trust proxy", 1);
 
 app.use(cors({
-  origin: function (origin, callback) {
-    // Allow requests with no origin (like Postman, mobile apps)
-    if (!origin) return callback(null, true);
-
-    if (allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+  origin: process.env.CLIENT_URL,
   credentials: true
 }));
-
-
-
-// app.use(cors({
-//   origin: "https://taskinternservice.vercel.app",
-//   credentials: true
-// }));
 
 app.use(express.json());
 app.use(cookieParser());
@@ -47,6 +26,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/gigs", gigRoutes);
 app.use("/api/bids", bidRoutes);
 
-app.listen(5000, () => {
-  console.log("Server running on http://localhost:5000");
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
